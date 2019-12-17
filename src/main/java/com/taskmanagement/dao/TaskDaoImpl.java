@@ -7,9 +7,12 @@ import javax.validation.Valid;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Projections;
+import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -86,7 +89,7 @@ public class TaskDaoImpl implements TaskDao {
 		List<Task> taskList = new ArrayList<Task>();
 		try {
 			tx = session.beginTransaction();
-			taskList = session.createQuery("from Task", Task.class).list();
+			taskList = session.createQuery("from Task" ,Task.class).list();
 			tx.commit();
 
 		} catch (Exception ex) {
@@ -183,7 +186,15 @@ public class TaskDaoImpl implements TaskDao {
 		List<User> userList = new ArrayList<User>();
 		try {
 			tx = session.beginTransaction();
-			userList = session.createQuery("from User", User.class).list();
+			Criteria cr = session.createCriteria(User.class)
+				    .setProjection(Projections.projectionList()
+				      .add(Projections.property("userId"), "userId")
+				      .add(Projections.property("firstName"), "firstName")
+				      .add(Projections.property("lastName"), "lastName")
+				      .add(Projections.property("employeeId"), "employeeId")
+				      .add(Projections.property("project"), "project"))
+				    .setResultTransformer(Transformers.aliasToBean(User.class));
+			userList = cr.list();
 			tx.commit();
 
 		} catch (Exception ex) {

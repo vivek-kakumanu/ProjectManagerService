@@ -10,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -52,9 +51,6 @@ public class Task {
 	@Column(name="task_Status")
 	private boolean endTaskStatus;
 	
-	
-	@OneToOne(mappedBy = "task")
-    private User user;
 
 	public Long getTaskId() {
 		return taskId;
