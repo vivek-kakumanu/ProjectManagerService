@@ -99,6 +99,7 @@ public class TaskManagementRestfulService {
 		taskList = taskDaoImpl.getTasks();
 		return taskList;
 	}
+	
 	@GetMapping(value = "/parentTasks", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<ParentTask> getParentTasks() {
 		
@@ -121,6 +122,14 @@ public class TaskManagementRestfulService {
 		user = taskDaoImpl.getUser(id);
 		return user;
 }
+	@GetMapping(value = "/project/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Project getProject(@PathVariable int id) {
+		
+		Project project = new Project();
+		project = taskDaoImpl.getProject(id);
+		return project;
+}
+	
 	@PutMapping(value = "/updateUser", produces = MediaType.APPLICATION_JSON_VALUE)
 	public User updateUser(@Valid @RequestBody User user) {
 		

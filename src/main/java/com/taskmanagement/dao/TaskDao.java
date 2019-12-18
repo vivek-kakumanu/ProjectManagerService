@@ -39,4 +39,8 @@ public interface TaskDao {
 
 	public List<ParentTask> getParentTasks();
 
+	public List<Task> getTasksByProject(Project project);
+
+	public Project getProject(int id);
+
 }

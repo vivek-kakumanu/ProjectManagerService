@@ -40,7 +40,7 @@ public class Task {
 	
 	@Column(name = "start_date")
 	@Temporal(TemporalType.DATE)
-	@JsonFormat(pattern="YYYY-MM-dd")
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date startDate;
 	
 	@Column(name = "end_date")

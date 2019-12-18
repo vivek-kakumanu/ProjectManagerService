@@ -12,6 +12,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -348,5 +349,55 @@ public class TaskDaoImpl implements TaskDao {
 		logger.info("Parent Tasks List Retrieved Successfully.");
 		return parentList;
 	}
+	@Override
+	public List<Task> getTasksByProject(Project project) {
+		// TODO Auto-generated method stub
+		logger.info("Getting List of Tasks From The Database");
+		Session session = sessionFactory.openSession();
+		Transaction tx = null;
+		List<Task> taskList = new ArrayList<Task>();
+		try {
+			tx = session.beginTransaction();
+			Criteria crit = session.createCriteria(Task.class);
+			crit.add(Restrictions.eq("project",project));
+			taskList = crit.list();
+
+		} catch (Exception ex) {
+			if (tx != null)
+				tx.rollback();
+			logger.error("Exception while retrieving the task list : " + ex);
+			throw ex;
+		} finally {
+			session.close();
+		}
+		logger.info("Tasks List Retrieved Successfully.");
+		return taskList;
+	}
+
+	@Override
+	public Project getProject(int id) {
+		// TODO Auto-generated method stub
+		logger.info("Getting a Project Based on The Key Passed");
+		Session session = sessionFactory.openSession();
+		Transaction tx = null;
+		Project project = new Project();
+		try {
+			tx = session.beginTransaction();
+			project = session.get(Project.class, new Long(id));
+			tx.commit();
+
+		} catch (Exception ex) {
+			if (tx != null)
+				tx.rollback();
+			logger.error("Exception while retrieving the project: " + ex);
+			throw ex;
+		} finally {
+			session.close();
+		}
+		logger.info("Project Retrieved Successfully from the Database");
+		return project;
+	}
+	
+	
 	}
 
