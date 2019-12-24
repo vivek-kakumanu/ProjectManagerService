@@ -30,7 +30,6 @@ import com.taskmanagement.model.User;
 	    methods = {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT}
 	)
 
-
 @RestController
 @RequestMapping("/taskmanagementservice")
 public class TaskManagementRestfulService {
