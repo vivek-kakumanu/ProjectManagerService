@@ -24,10 +24,10 @@ import com.projectmanagement.model.User;
 
 
 @Repository
-public class TaskDaoImpl implements TaskDao {
+public class ProjectManagerDaoImpl implements ProjectManagerDao {
 
 	/** Initialize the LOGGER object */
-	private static final Log logger = LogFactory.getLog(TaskDaoImpl.class);
+	private static final Log logger = LogFactory.getLog(ProjectManagerDaoImpl.class);
 	
 	@Autowired
 	private SessionFactory sessionFactory;

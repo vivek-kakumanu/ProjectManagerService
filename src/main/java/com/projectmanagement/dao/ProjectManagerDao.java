@@ -7,7 +7,7 @@ import com.projectmanagement.model.Project;
 import com.projectmanagement.model.Task;
 import com.projectmanagement.model.User;
 
-public interface TaskDao {
+public interface ProjectManagerDao {
 	
 	// Method to add task
 	public User addTask(User task);

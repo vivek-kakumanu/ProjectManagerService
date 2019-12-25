@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.projectmanagement.dao.TaskDaoImpl;
+import com.projectmanagement.dao.ProjectManagerDaoImpl;
 import com.projectmanagement.model.ParentTask;
 import com.projectmanagement.model.Project;
 import com.projectmanagement.model.Task;
@@ -35,45 +35,45 @@ import com.projectmanagement.model.User;
 public class TaskManagementRestfulService {
 
 	@Autowired
-	private TaskDaoImpl taskDaoImpl;
+	private ProjectManagerDaoImpl projectManagerDaoImpl;
 	
 	
 	@PutMapping(value = "/addtask", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public User addTask(@Valid @RequestBody User task) {
 
-		return taskDaoImpl.addTask(task);
+		return projectManagerDaoImpl.addTask(task);
 	}
 	@PutMapping(value = "/addUser", produces = MediaType.APPLICATION_JSON_VALUE)
 	
 	public User addUser(@Valid @RequestBody User user) {
 
-		return taskDaoImpl.addUser(user);
+		return projectManagerDaoImpl.addUser(user);
 	}
 	
 	@PutMapping(value = "/deleteUser", produces = MediaType.APPLICATION_JSON_VALUE)
 	
 	public User deleteUser(@Valid @RequestBody User user) {
 
-		return taskDaoImpl.deleteUser(user);
+		return projectManagerDaoImpl.deleteUser(user);
 	}
 	
 	@PutMapping(value = "/addProject", produces = MediaType.APPLICATION_JSON_VALUE)
 	public User addProject(@Valid @RequestBody User user) {
 		
-		return taskDaoImpl.addProject(user);
+		return projectManagerDaoImpl.addProject(user);
 	}
 	
 	@PutMapping(value = "/updateProject", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Project updateProject(@Valid @RequestBody Project project) {
 		
-		return taskDaoImpl.updateProject(project);
+		return projectManagerDaoImpl.updateProject(project);
 	}
 	
 	@GetMapping(value = "/projects", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Project> getProjects() {
 		
 		List<Project> projectList = new ArrayList<Project>();
-		projectList = taskDaoImpl.getProjects();
+		projectList = projectManagerDaoImpl.getProjects();
 		return projectList;
 	}
 
@@ -82,21 +82,21 @@ public class TaskManagementRestfulService {
 	public List<User> getUsers() {
 		
 		List<User> userList = new ArrayList<User>();
-		userList = taskDaoImpl.getUsers();
+		userList = projectManagerDaoImpl.getUsers();
 		return userList;
 	}
 
 	@PutMapping(value = "/updatetask", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Task updateTask(@Valid @RequestBody Task task) {
 		
-		return taskDaoImpl.updateTask(task);
+		return projectManagerDaoImpl.updateTask(task);
 	}
 
 	@GetMapping(value = "/tasks", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Task> getTasks() {
 		
 		List<Task> taskList = new ArrayList<Task>();
-		taskList = taskDaoImpl.getTasks();
+		taskList = projectManagerDaoImpl.getTasks();
 		return taskList;
 	}
 	
@@ -104,7 +104,7 @@ public class TaskManagementRestfulService {
 	public List<ParentTask> getParentTasks() {
 		
 		List<ParentTask> taskList = new ArrayList<ParentTask>();
-		taskList = taskDaoImpl.getParentTasks();
+		taskList = projectManagerDaoImpl.getParentTasks();
 		return taskList;
 	}
 	
@@ -112,27 +112,27 @@ public class TaskManagementRestfulService {
 	public Task getTask(@PathVariable int id) {
 		
 		Task task = new Task();
-		task = taskDaoImpl.getTask(id);
+		task = projectManagerDaoImpl.getTask(id);
 		return task;
 }
 	@GetMapping(value = "/user/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public User getUser(@PathVariable int id) {
 		
 		User user = new User();
-		user = taskDaoImpl.getUser(id);
+		user = projectManagerDaoImpl.getUser(id);
 		return user;
 }
 	@GetMapping(value = "/project/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Project getProject(@PathVariable int id) {
 		
 		Project project = new Project();
-		project = taskDaoImpl.getProject(id);
+		project = projectManagerDaoImpl.getProject(id);
 		return project;
 }
 	
 	@PutMapping(value = "/updateUser", produces = MediaType.APPLICATION_JSON_VALUE)
 	public User updateUser(@Valid @RequestBody User user) {
 		
-		return taskDaoImpl.updateUser(user);
+		return projectManagerDaoImpl.updateUser(user);
 	}
 }
