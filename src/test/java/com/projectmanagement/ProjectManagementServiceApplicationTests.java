@@ -1,26 +1,15 @@
-package com.taskmanagement;
+package com.projectmanagement;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
-
-import java.util.Date;
-
-import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.taskmanagement.dao.TaskDaoImpl;
-import com.taskmanagement.model.ParentTask;
-import com.taskmanagement.model.Task;
-import com.taskmanagement.restservice.TaskManagementRestfulService;
+import com.projectmanagement.dao.TaskDaoImpl;
+import com.projectmanagement.restservice.TaskManagementRestfulService;
 
 
 @SpringBootTest
-class TaskManagementServiceApplicationTests {
+class ProjectManagementServiceApplicationTests {
 
 	@InjectMocks
 	TaskManagementRestfulService taskService;

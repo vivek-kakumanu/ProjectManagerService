@@ -1,4 +1,4 @@
-package com.taskmanagement.model;
+package com.projectmanagement.model;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package com.taskmanagement.dao;
+package com.projectmanagement.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,10 +17,10 @@ import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.taskmanagement.model.ParentTask;
-import com.taskmanagement.model.Project;
-import com.taskmanagement.model.Task;
-import com.taskmanagement.model.User;
+import com.projectmanagement.model.ParentTask;
+import com.projectmanagement.model.Project;
+import com.projectmanagement.model.Task;
+import com.projectmanagement.model.User;
 
 
 @Repository

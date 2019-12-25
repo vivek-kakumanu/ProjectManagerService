@@ -1,4 +1,4 @@
-package com.taskmanagement.util;
+package com.projectmanagement.util;
 
 import java.util.Properties;
 
@@ -48,7 +48,7 @@ public class HibernateUtilConfig {
 		LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
 		sessionFactoryBean.setDataSource(getDataSource());
 		sessionFactoryBean.setHibernateProperties(hibernateProperties());
-		sessionFactoryBean.setPackagesToScan(new String[] {"com.taskmanagement.model"});
+		sessionFactoryBean.setPackagesToScan(new String[] {"com.projectmanagement.model"});
 		logger.info("Session factory created.");
 		return sessionFactoryBean;
 	}

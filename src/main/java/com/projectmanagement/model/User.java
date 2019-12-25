@@ -1,4 +1,4 @@
-package com.taskmanagement.model;
+package com.projectmanagement.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

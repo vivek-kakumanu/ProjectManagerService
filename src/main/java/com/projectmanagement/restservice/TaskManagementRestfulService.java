@@ -1,4 +1,4 @@
-package com.taskmanagement.restservice;
+package com.projectmanagement.restservice;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,11 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.taskmanagement.dao.TaskDaoImpl;
-import com.taskmanagement.model.ParentTask;
-import com.taskmanagement.model.Project;
-import com.taskmanagement.model.Task;
-import com.taskmanagement.model.User;
+import com.projectmanagement.dao.TaskDaoImpl;
+import com.projectmanagement.model.ParentTask;
+import com.projectmanagement.model.Project;
+import com.projectmanagement.model.Task;
+import com.projectmanagement.model.User;
 
 
 @CrossOrigin(
